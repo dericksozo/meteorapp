@@ -59,6 +59,8 @@
 
 <template name="emojiSelector">
     <div class='emojiSelector'>
-        <!-- Render a bunch of emoji inside of here and organize them somehow for selection -->
+        {{#each getEmojiList}}
+            {{> emojione this}}
+        {{/each}}
     </div>
 </template>

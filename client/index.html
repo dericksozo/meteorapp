@@ -4,6 +4,7 @@
 </head>
 
 <body>
+    {{> loginButtons}}
     <div class='wrapper'>
         {{> question}}
     </div>
@@ -99,7 +100,9 @@
 <template name="emojiSelector">
     <div class='emojiSelector'>
         {{#each getEmojiList}}
+        <div class="emoji">
             {{> emojione shortname}}
+          </div>
         {{/each}}
     </div>
 </template>

@@ -8,6 +8,7 @@ Meteor.methods({
     {
       Questions.insert({question: question, answer: answer, hint: hint});
     } else {
+      // Use s-alert
       console.log('Only the last winner can submit a new challenge');
     }
   },
@@ -17,7 +18,7 @@ Meteor.methods({
     var result = guess == currentQuestion.answer;
 
     // Notify user
-    // add question to history
+    // add guess to history
 
     if (result) {
       // start 10 min timer

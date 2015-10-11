@@ -5,3 +5,9 @@ Template.emojiSelector.helpers({
         return Emoji.find({category: 'places'});
     }
 });
+
+Template.emojiSelector.events({
+  'click .emoji': function(e, t) {
+    console.log(this.shortname);
+  }
+})

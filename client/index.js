@@ -7,6 +7,19 @@ Template.question.helpers({
   }
 });
 
+Template.question.events({
+  'click .js-submit-answer': function (e, t) {
+    e.preventDefault();
+    Meteor.call('checkAnswer', $('.answer-input').val(), function(err, res) {
+      if (res == true) {
+        sAlert.success("You got the answer!");
+      } else {
+        sAlert.error("Wrong answer. Try again.");
+      }
+    });
+  }
+});
+
 Template.emojiSelector.helpers({
     getEmojiList: function () {
         var category = Session.get('category') || 'places';
@@ -37,9 +50,3 @@ Template.form.events({
 });
 
 Meteor.subscribe('questions');
-
-Template.question.helpers({
-    'click .js-submit-answer': function () {
-        // Meteor.call('submitAnswer', );
-    }
-});

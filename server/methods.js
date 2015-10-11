@@ -17,13 +17,14 @@ Meteor.methods({
     var currentQuestion = Questions.findOne({},{sort: {lastUsed: 1}});
     var result = guess == currentQuestion.answer;
 
-    // Notify user
-    // add guess to history
+    Questions.update({_id: currentQuestion._id}, {$addToSet: {answers: guess}});
 
     if (result) {
       // start 10 min timer
-      // give points
-      // redirect to question submit
+      Meteor.users.update({_id: Meteor.userId()}, {$inc: {points: 5}});
+      Questions.update({_id: currentQuestion._id}, {answers: []});
     }
+
+    return result;
   }
 });

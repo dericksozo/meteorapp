@@ -10,59 +10,14 @@
 </body>
 
 <template name="question">
-
-    <header class='header'>
-        <button class='header--btn btn'>leaderboard</button>
-        <div class='timer'>00:10:59</div>
-    </header>
-
-    <main class='main' role='main'>
-
-        <div class='submittedBy'>
-            <div class='submittedBy--text'>Submitted by</div>
-            <div class='submittedBy--user user-large'>
-                <img class='user--avatar'>
-                <span class='user--name'>derick</span>
-            </div>
-        </div>
-
-        <div class='emojiQuestion'>
-            <!-- A list of emojis -->
-        </div>
-
-        <div class='form'>
-            <div class='form--inputContainer form--inputContainerLarge'>
-                <input type='text' placeholder='Guess the answer'>
-            </div>
-            <div class='form--inputContainer'>
-                <button class='btn form--btn'>hint</button>
-            </div>
-        </div>
-
-        <div class='userAnswers'>
-            <ul class='userAnswers--list'>
-                <li class='userAnswers--listItem'>
-                    <div class='user'>
-                        <img class='user--avatar'>
-                        <span class='user--name'>derick</span>
-                    </div>
-                    <div class='userAnswers--answer'>Very happy, but sad cops.</div>
-                    <div class='answerNumber'>
-                        02
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </main>
     {{> leaderboard}}
     {{> form}}
-    {{> emojiSelector}}
 </template>
 
 <template name="leaderboard"></template>
 
 <template name="form">
-<div class='createQuestion' style='display: none;'>
+<div class='createQuestion'>
     <header class='header'>
         <button class='header--btn btn'>leaderboard</button>
         <button class='header--btnRight btn'>question</button>
@@ -83,8 +38,9 @@
                     <input type='text' placeholder='hint'>
                 </div>
 
+                <!-- others, places, objects, nature, emoticons -->
                 <div class='form--inputContainer form--inputContainerEmoji'>
-                    <input type='text' readonly placeholder='emoji'>
+                    {{> emojiSelector}}
                 </div>
 
                 <div class='form--inputContainer'>
@@ -97,9 +53,19 @@
 </template>
 
 <template name="emojiSelector">
-    <div class='emojiSelector'>
-        {{#each getEmojiList}}
+    <div class='emojiHolder'>{{> emojione selectedEmojis}}</div>
+    <div class='emojiCategories'>
+        <button class='btn js-change-category' data-category="places" data-action="change_category">places</button>
+        <button class='btn js-change-category' data-category="emoticons" data-action="change_category">emoticons</button>
+        <button class='btn js-change-category' data-category="objects" data-action="change_category">objects</button>
+        <button class='btn js-change-category' data-category="nature" data-action="change_category">nature</button>
+        <button class='btn js-change-category' data-category="others" data-action="change_category">others</button>
+    </div>
+    <div class='emojiSelector js-emojiSelector'>
+        {{#each getEmojiList }}
+        <div class='emoji'>
             {{> emojione shortname}}
+        </div>
         {{/each}}
     </div>
 </template>

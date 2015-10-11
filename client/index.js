@@ -1,6 +1,11 @@
-Template.emojiSelector.helpers = {
+Template.emojiSelector.helpers({
     getEmojiList: function () {
-        console.log(emojione.emojiList);
-        return emojione.emojiList;
+        var emojis = [];
+        for (var emoji in emojione.emojioneList) {
+            if (emojione.emojioneList.hasOwnProperty(emoji)) {
+                emojis.push(emoji);
+            }
+        }
+        return emojis;
     }
-};
+});

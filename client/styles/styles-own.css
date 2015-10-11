@@ -1,0 +1,51 @@
+.wrapper {
+    padding: 0 0.71rem;
+    padding-top: 0.71rem;
+}
+
+/* .btn */
+.btn {
+    display: block;
+    background: none;
+    font-family: inherit;
+
+    border: 1px solid #C8C8C8;
+    color: #C8C8C8;
+
+    padding: 0.5rem 0.25rem;
+}
+
+/* header */
+
+.header {
+    display: block;
+    overflow: hidden;
+}
+
+.header--btn {
+    float: left;
+}
+
+.header--btnRight {
+    float: right;
+}
+
+/* form */
+.form--inputContainer > input[type="text"] {
+    background: none;
+
+    border: none;
+    border-bottom: 1px solid #C8C8C8;
+}
+
+.form--inputContainerEmoji > input[type="text"] {
+    border-bottom: none;
+}
+
+input[type="text"] {
+    height: 44px;
+}
+
+.form--btn {
+    float: right;
+}

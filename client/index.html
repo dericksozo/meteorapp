@@ -1,6 +1,6 @@
 <head>
   <title>Memoji</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -10,6 +10,50 @@
 </body>
 
 <template name="question">
+
+    <header class='header'>
+        <button class='header--btn btn'>leaderboard</button>
+        <div class='timer'>00:10:59</div>
+    </header>
+
+    <main class='main' role='main'>
+
+        <div class='submittedBy'>
+            <div class='submittedBy--text'>Submitted by</div>
+            <div class='submittedBy--user user-large'>
+                <img class='user--avatar'>
+                <span class='user--name'>derick</span>
+            </div>
+        </div>
+
+        <div class='emojiQuestion'>
+            <!-- A list of emojis -->
+        </div>
+
+        <div class='form'>
+            <div class='form--inputContainer form--inputContainerLarge'>
+                <input type='text' placeholder='Guess the answer'>
+            </div>
+            <div class='form--inputContainer'>
+                <button class='btn form--btn'>hint</button>
+            </div>
+        </div>
+
+        <div class='userAnswers'>
+            <ul class='userAnswers--list'>
+                <li class='userAnswers--listItem'>
+                    <div class='user'>
+                        <img class='user--avatar'>
+                        <span class='user--name'>derick</span>
+                    </div>
+                    <div class='userAnswers--answer'>Very happy, but sad cops.</div>
+                    <div class='answerNumber'>
+                        02
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
     {{> leaderboard}}
     {{> form}}
 </template>
@@ -17,15 +61,10 @@
 <template name="leaderboard"></template>
 
 <template name="form">
-
+<div class='createQuestion' style='display: none;'>
     <header class='header'>
-        <div class='header--button'>
-            <button class='btn'>leaderboard</button>
-        </div>
-
-        <div class='header--buton header--buttonRight'>
-            <button class='btn'>question</button>
-        </div>
+        <button class='header--btn btn'>leaderboard</button>
+        <button class='header--btnRight btn'>question</button>
     </header>
 
     <main class='main' role='main'>
@@ -44,17 +83,16 @@
                 </div>
 
                 <div class='form--inputContainer form--inputContainerEmoji'>
-                    <input type='text' placeholder='emoji'>
-                    {{> emojiSelector}}
+                    <input type='text' readonly placeholder='emoji'>
                 </div>
 
                 <div class='form--inputContainer'>
-                    <input type='submit' value='submit' class='btn'>
+                    <input type='submit' value='submit' class='btn form--btn'>
                 </div>
             </form>
         </div>
     </main>
-
+</div><!-- .createQuestion -->
 </template>
 
 <template name="emojiSelector">

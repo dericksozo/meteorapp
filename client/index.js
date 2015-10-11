@@ -1,5 +1,12 @@
 Meteor.subscribe("emoji");
 
+Template.question.helpers({
+  question: function() {
+    console.log(Questions.findOne({}, {sort: {submittedBy: 1}}));
+    return Questions.findOne({}, {sort: {submittedBy: 1}});
+  }
+});
+
 Template.emojiSelector.helpers({
     getEmojiList: function () {
         var category = Session.get('category') || 'places';

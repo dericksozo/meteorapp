@@ -17,15 +17,15 @@
     </header>
 
     <main class='main' role='main'>
-
+      {{#with question}}
         <div class='submittedBy'>
             <div class='submittedBy--text'>Submitted by</div>
             <div class='submittedBy--user user-large'>
-                <span class='user--name'>{{user}}</span>
+                <span class='user--name'>{{this.submittedBy}}</span>
             </div>
         </div>
 
-        <div class='emojiQuestion'>{{question}}</div>
+        <div class='emojiQuestion'>{{#emojione}}{{this.question}}{{/emojione}}</div>
 
         <div class='form'>
             <div class='form--inputContainer form--inputContainerLarge'>
@@ -33,13 +33,13 @@
             </div>
             <div class='form--inputContainer'>
                 <button class='btn form--btn'>hint</button>
-                <div class='hintContainer'>{{hint}}</div>
+                <div class='hintContainer'>{{this.hint}}</div>
             </div>
         </div>
 
         <div class='userAnswers'>
             <ul class='userAnswers--list'>
-                {{#each answers}}
+                {{#each this.answers}}
                 <li class='userAnswers--listItem'>
                     <div class='user'>
                         <img class='user--avatar'>
@@ -53,6 +53,7 @@
                 {{/each}}
             </ul>
         </div>
+        {{/with}}
     </main>
     {{> leaderboard}}
     {{> form}}

@@ -1,3 +1,3 @@
 Meteor.publish("emoji", function(){
-  return Emoji.find();
+  return Emoji.find({});
 });

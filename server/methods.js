@@ -13,8 +13,16 @@ Meteor.methods({
   },
   // Validates answer
   checkAnswer:function(guess){
-    // if correct, notify the user, redirect to question submit, and start 10 min timer, add answer to answer history
-    // if incorrect, notify the user, add answer to answer history
     var currentQuestion = Questions.findOne({},{sort: {lastUsed: 1}});
+    var result = guess == currentQuestion.answer;
+
+    // Notify user
+    // add question to history
+
+    if (result) {
+      // start 10 min timer
+      // give points
+      // redirect to question submit
+    }
   }
 });

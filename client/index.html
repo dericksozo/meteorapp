@@ -56,6 +56,7 @@
     </main>
     {{> leaderboard}}
     {{> form}}
+    {{> emojiSelector}}
 </template>
 
 <template name="leaderboard"></template>
@@ -98,7 +99,7 @@
 <template name="emojiSelector">
     <div class='emojiSelector'>
         {{#each getEmojiList}}
-            {{> emojione this}}
+            {{> emojione shortname}}
         {{/each}}
     </div>
 </template>

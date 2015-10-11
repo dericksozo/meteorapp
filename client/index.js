@@ -39,4 +39,7 @@ Template.form.events({
 Meteor.subscribe('questions');
 
 Template.question.helpers({
+    'click .js-submit-answer': function () {
+        // Meteor.call('submitAnswer', );
+    }
 });

@@ -18,9 +18,8 @@ Template.emojiSelector.events({
         Session.set('category', category);
     },
     'click .emoji': function (event) {
-        var selectedEmoji = Session.get('selectedEmoji');
+        var selectedEmoji = Session.get('selectedEmoji') || '';
         selectedEmoji = selectedEmoji + this.shortname + ' ';
         Session.set('selectedEmoji', selectedEmoji);
-        console.log(Session.get('selectedEmoji'));
     }
 });

@@ -11,6 +11,49 @@
 </body>
 
 <template name="question">
+    <header class='header'>
+        <button class='header--btn btn'>leaderboard</button>
+        <div class='timer'>00:10:59</div>
+    </header>
+
+    <main class='main' role='main'>
+
+        <div class='submittedBy'>
+            <div class='submittedBy--text'>Submitted by</div>
+            <div class='submittedBy--user user-large'>
+                <span class='user--name'>{{user}}</span>
+            </div>
+        </div>
+
+        <div class='emojiQuestion'>{{question}}</div>
+
+        <div class='form'>
+            <div class='form--inputContainer form--inputContainerLarge'>
+                <input type='text' placeholder='Guess the answer'>
+            </div>
+            <div class='form--inputContainer'>
+                <button class='btn form--btn'>hint</button>
+                <div class='hintContainer'>{{hint}}</div>
+            </div>
+        </div>
+
+        <div class='userAnswers'>
+            <ul class='userAnswers--list'>
+                {{#each answers}}
+                <li class='userAnswers--listItem'>
+                    <div class='user'>
+                        <img class='user--avatar'>
+                        <span class='user--name'>{{user}}</span>
+                    </div>
+                    <div class='userAnswers--answer'>{{answer}}</div>
+                    <div class='answerNumber'>
+                        {{number}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </main>
     {{> leaderboard}}
     {{> form}}
 </template>
@@ -18,7 +61,7 @@
 <template name="leaderboard"></template>
 
 <template name="form">
-<div class='createQuestion'>
+<div class='createQuestion' style='display: none;'>
     <header class='header'>
         <button class='header--btn btn'>leaderboard</button>
         <button class='header--btnRight btn'>question</button>

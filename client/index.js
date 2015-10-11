@@ -23,3 +23,13 @@ Template.emojiSelector.events({
         Session.set('selectedEmoji', selectedEmoji);
     }
 });
+
+Template.form.events({
+    'submit': function (event) {
+    }
+});
+
+Meteor.subscribe('questions');
+
+Template.question.helpers({
+});

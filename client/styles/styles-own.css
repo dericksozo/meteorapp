@@ -49,3 +49,11 @@ input[type="text"] {
 .form--btn {
     float: right;
 }
+
+.hintContainer {
+    display: none;
+}
+
+.hintContainer.show {
+    display: block;
+}

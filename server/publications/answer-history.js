@@ -1,3 +1,3 @@
-Meteor.Meteor.publish("answerhistory", function(){
+Meteor.publish("answerhistory", function(){
   return AnswerHistory.find();
 });

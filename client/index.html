@@ -1,0 +1,64 @@
+<head>
+  <title>Memoji</title>
+
+</head>
+
+<body>
+    <div class='wrapper'>
+        {{> question}}
+    </div>
+</body>
+
+<template name="question">
+    {{> leaderboard}}
+    {{> form}}
+</template>
+
+<template name="leaderboard"></template>
+
+<template name="form">
+
+    <header class='header'>
+        <div class='header--button'>
+            <button class='btn'>leaderboard</button>
+        </div>
+
+        <div class='header--buton header--buttonRight'>
+            <button class='btn'>question</button>
+        </div>
+    </header>
+
+    <main class='main' role='main'>
+        <div class='congratsMessage'>
+            Congrats, user! Create the next one.
+        </div>
+
+        <div class='form'>
+            <form>
+                <div class='form--inputContainer'>
+                    <input type='text' placeholder='answer'>
+                </div>
+
+                <div class='form--inputContainer'>
+                    <input type='text' placeholder='hint'>
+                </div>
+
+                <div class='form--inputContainer form--inputContainerEmoji'>
+                    <input type='text' placeholder='emoji'>
+                    {{> emojiSelector}}
+                </div>
+
+                <div class='form--inputContainer'>
+                    <input type='submit' value='submit' class='btn'>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</template>
+
+<template name="emojiSelector">
+    <div class='emojiSelector'>
+        <!-- Render a bunch of emoji inside of here and organize them somehow for selection -->
+    </div>
+</template>
